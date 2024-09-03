@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoSing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-left: 5vw;
+        }
+        audio {
+            width: 16vw;
+        }
+        table td {
+            width: 20vw;
+        }
+        table tr {
+            max-width: 90vw;
+        }
+
+        #abstract {
+            max-width: 1000px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AutoSing</h1>
+        <h2>Generating Vocals from Lyrics and Musical Accompaniment <a href="...">[PDF]</a></h2>
+
+        <p>Georg Streich &nbsp;&nbsp;&nbsp; Luca A. Lanzendörfer &nbsp;&nbsp;&nbsp; Florian Grötschla &nbsp;&nbsp;&nbsp; Roger Wattenhofer</p>
+        <p>streichg@ethz.ch &nbsp;&nbsp;&nbsp; lanzendoerfer@ethz.ch &nbsp;&nbsp;&nbsp; groetschla@ethz.ch &nbsp;&nbsp;&nbsp; wattenhofer@ethz.ch</p>
+        <p>ETH Zürich</p>
+        <br>
+
+        <h3>Abstract</h3>
+        <p id="abstract">In this work, we introduce AutoSing, a novel framework designed to generate high-quality singing voices from provided lyrics and musical accompaniment. Leveraging a text-to-semantic model to interpret lyrical content alongside the latent representation of the accompaniment, AutoSing leverages an autoregressive model to generate 32kHz vocal stems, achieving an output that is textually accurate and well aligned with melodical nuances of the musical accompaniment. Our contributions include a novel training scheme for autoregressive audio models applied to singing voice synthesis, various ablations on singer embeddings and. We measure AutoSing's performance on various objective metrics and perform subjective listening tests, demonstrating the capability of our approach in generating coherent and harmonious singing voices. Furthermore, we open-source our codebase to foster further research in the field.</p>
+        <table>
+            <tr>
+                <td><audio controls src="abstract/start.mp3"></audio></td>
+                <td><audio controls src="abstract/fresh.mp3"></audio></td>
+                <td><audio controls src="abstract/hands.mp3"></audio></td>
+            </tr>
+        </table>
+
+        <h3>Examples</h3>
+        <table>
+            <tr>
+                <td>Reference \ Lyrics</td>
+                <td>i saw you standing under moonlight your eyes like diamonds in the sky i felt a spark ignite oh couldn't help but catch your smile</td>
+                <td>i saw a cat sitting on a mat wearing a hat how about that he looked at me with his big green eyes started to dance what a surprise</td>
+                <td>we choose to go to the moon in this decade and do the other things not because they are easy but because they are hard because that goal</td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/no_love_ref.mp3"></audio></td>
+                <td><audio controls src="grid/no_love_you.mp3"></audio></td>
+                <td><audio controls src="grid/no_love_cat.mp3"></audio></td>
+                <td><audio controls src="grid/no_love_moon.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/start_ref.mp3"></audio></td>
+                <td><audio controls src="grid/start_you.mp3"></audio></td>
+                <td><audio controls src="grid/start_cat.mp3"></audio></td>
+                <td><audio controls src="grid/start_moon.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/leona_ref.mp3"></audio></td>
+                <td><audio controls src="grid/leona_you.mp3"></audio></td>
+                <td><audio controls src="grid/leona_cat.mp3"></audio></td>
+                <td><audio controls src="grid/leona_moon.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/fresh_ref.mp3"></audio></td>
+                <td><audio controls src="grid/fresh_you.mp3"></audio></td>
+                <td><audio controls src="grid/fresh_cat.mp3"></audio></td>
+                <td><audio controls src="grid/fresh_moon.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/hands_ref.mp3"></audio></td>
+                <td><audio controls src="grid/hands_you.mp3"></audio></td>
+                <td><audio controls src="grid/hands_cat.mp3"></audio></td>
+                <td><audio controls src="grid/hands_moon.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/samie_ref.mp3"></audio></td>
+                <td><audio controls src="grid/samie_you.mp3"></audio></td>
+                <td><audio controls src="grid/samie_cat.mp3"></audio></td>
+                <td><audio controls src="grid/samie_moon.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/egor_ref.mp3"></audio></td>
+                <td><audio controls src="grid/egor_you.mp3"></audio></td>
+                <td><audio controls src="grid/egor_cat.mp3"></audio></td>
+                <td><audio controls src="grid/egor_moon.mp3"></audio></td>
+            </tr>
+        </table>
+
+        <h3>Generating Semantic Tokens Without Lyrics Conditioning</h3>
+        <table>
+            <tr>
+                <td>Reference</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/leona_ref.mp3"></audio></td>
+                <td><audio controls src="unconditional/leona.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/alone_ref.mp3"></audio></td>
+                <td><audio controls src="unconditional/alone.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/start_ref.mp3"></audio></td>
+                <td><audio controls src="unconditional/start.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="grid/hands_ref.mp3"></audio></td>
+                <td><audio controls src="unconditional/hands.mp3"></audio></td>
+            </tr>
+        </table>
+
+        <h3>Effect of Lyrics Prompt Length</h3>
+        <table>
+            <tr>
+                <td>55 WPM</td>
+                <td>110 WPM</td>
+                <td>165 WPM</td>
+                <td>220 WPM</td>
+            </tr>
+            <tr>
+                <td><audio controls src="wpm/fresh_50.mp3"></audio></td>
+                <td><audio controls src="wpm/fresh_100.mp3"></audio></td>
+                <td><audio controls src="wpm/fresh_150.mp3"></audio></td>
+                <td><audio controls src="wpm/fresh_200.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="wpm/how_50.mp3"></audio></td>
+                <td><audio controls src="wpm/how_100.mp3"></audio></td>
+                <td><audio controls src="wpm/how_150.mp3"></audio></td>
+                <td><audio controls src="wpm/how_200.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="wpm/ano_50.mp3"></audio></td>
+                <td><audio controls src="wpm/ano_100.mp3"></audio></td>
+                <td><audio controls src="wpm/ano_150.mp3"></audio></td>
+                <td><audio controls src="wpm/ano_200.mp3"></audio></td>
+            </tr>
+        </table>
+
+        <h3>Generating From Existing Semantic Tokens</h3>
+        <table>
+            <tr>
+                <td>Semantic Token Source \ Reference</td>
+                <td><audio controls src="grid/start_ref.mp3"></audio></td>
+                <td><audio controls src="grid/hands_ref.mp3"></audio></td>
+                <td><audio controls src="grid/alone_ref.mp3"></audio></td>
+                <td><audio controls src="grid/egor_ref.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="voice_clone/country_roads.m4a"></audio></td>
+                <td><audio controls src="voice_clone/start_country.mp3"></audio></td>
+                <td><audio controls src="voice_clone/hands_country.mp3"></audio></td>
+                <td><audio controls src="voice_clone/alone_country.mp3"></audio></td>
+                <td><audio controls src="voice_clone/egor_country.mp3"></audio></td>
+            </tr>
+            <tr>
+                <td><audio controls src="voice_clone/start.wav"></audio></td>
+                <td><audio controls src="voice_clone/start_start.mp3"></audio></td>
+                <td><audio controls src="voice_clone/hands_start.mp3"></audio></td>
+                <td><audio controls src="voice_clone/alone_start.mp3"></audio></td>
+                <td><audio controls src="voice_clone/egor_start.mp3"></audio></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const audioPlayers = document.querySelectorAll('audio');
+        audioPlayers.forEach(audio => {
+            audio.addEventListener('play', () => {
+                audioPlayers.forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
