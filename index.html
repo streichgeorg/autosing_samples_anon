@@ -48,21 +48,23 @@
         <p id="abstract">
             In this work, we introduce AutoSing, a novel framework designed to generate diverse and high-quality singing voices from provided lyrics and musical accompaniment. AutoSing extends an existing semantic token-based text-to-speech approach by incorporating musical accompaniment as an additional conditioning input. This enables AutoSing to synchronize its vocal output with the rhythm and melodic nuances of the accompaniment while adhering to the provided lyrics. Our contributions include a novel training scheme for autoregressive audio models applied to singing voice synthesis, as well as ablation studies to identify the best musical accompaniment conditioning. We measure AutoSing's performance with subjective listening tests, demonstrating its capability to generate coherent and creative singing voices. Furthermore, we open-source our codebase to foster further research in the field of singing voice synthesis.
         </p>
-        <table>
-            <tr>
-                <td><audio controls src="abstract/fresh.mp3"></audio></td>
-                <td><audio controls src="abstract/start.mp3"></audio></td>
-                <td><audio controls src="abstract/hands.mp3"></audio></td>
-            </tr>
-        </table>
 
         <h3>Examples</h3>
         <table>
             <tr class="title-row">
-                <td>Reference</td>
-                <td>i saw you standing under moonlight your eyes like diamonds in the sky i felt a spark ignite oh couldn't help but catch your smile</td>
-                <td>i saw a cat sitting on a mat wearing a hat how about that he looked at me with his big green eyes started to dance</td>
-                <td>we choose to go to the moon in this decade and do the other things not because they are easy but because they are hard</td>
+                <td>Accompaniment</td>
+                <td>
+                    I saw you standing under moonlight your eyes like diamonds in the sky<br>
+                    I felt a spark ignite oh couldn't help but catch your smile
+                </td>
+                <td>
+                    I saw a cat sitting on a mat wearing a hat how about that<br>
+                    he looked at me with his big green eyes started to dance
+                </td>
+                <td>
+                    we choose to go to the moon in this decade and do the other things<br>
+                    not because they are easy but because they are hard
+                </td>
             </tr>
             <tr>
                 <td><audio controls src="ref/no_love_ref.wav"></audio></td>
@@ -118,7 +120,7 @@
         <p>By leaving away the text input we can make the model come up with it's own lyrics.</p>
         <table>
             <tr>
-                <td>Reference</td>
+                <td>Accompaniment</td>
                 <td></td>
             </tr>
             <tr>
@@ -140,9 +142,10 @@
         </table>
 
         <h3>Interpolating Between Artist Embeddings</h3>
+        <p>Artist embeddings allows us to control the singing voice independently from the musical accompaniment. Below we interpolate between two artist embeddings two illustrate this.</p>
         <table>
             <tr>
-                <td>&alpha; = 0</td>
+                <td>Interpolation strength &alpha; = 0</td>
                 <td>1 / 3</td>
                 <td>2 / 3</td>
                 <td>1</td>
@@ -182,23 +185,6 @@
                 <td><audio controls src="wpm/ano_50.mp3"></audio></td>
                 <td><audio controls src="wpm/ano_100.mp3"></audio></td>
                 <td><audio controls src="wpm/ano_150.mp3"></audio></td>
-            </tr>
-        </table>
-
-        <h3>Generating From Existing Semantic Tokens</h3>
-        <p>Instead of generating semantic tokens with the text-to-semantic stage we can extract them from existing audio.</p>
-        <table>
-            <tr>
-                <td>Semantic Token Source \ Reference</td>
-                <td><audio controls src="ref/start_ref.wav"></audio></td>
-                <td><audio controls src="ref/hands_ref.wav"></audio></td>
-                <td><audio controls src="ref/egor_ref.wav"></audio></td>
-            </tr>
-            <tr>
-                <td><audio controls src="voice_clone/country_roads.m4a"></audio></td>
-                <td><audio controls src="voice_clone/start_country.mp3"></audio></td>
-                <td><audio controls src="voice_clone/hands_country.mp3"></audio></td>
-                <td><audio controls src="voice_clone/egor_country.mp3"></audio></td>
             </tr>
         </table>
     </main>
