@@ -116,33 +116,8 @@
             </tr>
         </table>
 
-        <h3>Generating Semantic Tokens Without Lyrics Conditioning</h3>
-        <p>By leaving away the text input we can make the model come up with it's own lyrics.</p>
-        <table>
-            <tr>
-                <td>Accompaniment</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><audio controls src="ref/leona_ref.wav"></audio></td>
-                <td><audio controls src="unconditional/leona.mp3"></audio></td>
-            </tr>
-            <tr>
-                <td><audio controls src="ref/alone_ref.wav"></audio></td>
-                <td><audio controls src="unconditional/alone.mp3"></audio></td>
-            </tr>
-            <tr>
-                <td><audio controls src="ref/start_ref.wav"></audio></td>
-                <td><audio controls src="unconditional/start.mp3"></audio></td>
-            </tr>
-            <tr>
-                <td><audio controls src="ref/ocean_ref.wav"></audio></td>
-                <td><audio controls src="unconditional/ocean.mp3"></audio></td>
-            </tr>
-        </table>
-
         <h3>Interpolating Between Artist Embeddings</h3>
-        <p>Artist embeddings allows us to control the singing voice independently from the musical accompaniment. Below we interpolate between two artist embeddings two illustrate this.</p>
+        <p>Artist embeddings allow us to control the singing voice independently from the musical accompaniment. Below we interpolate between two artist embeddings to illustrate this.</p>
         <table>
             <tr>
                 <td>Interpolation strength &alpha; = 0</td>
